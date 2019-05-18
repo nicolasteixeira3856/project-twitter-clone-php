@@ -10,7 +10,7 @@
             $usuario = Container::getModel('Usuario');
 
             $usuario->__set('email', $_POST['email']);
-            $usuario->__set('senha', $_POST['senha']);
+            $usuario->__set('senha', MD5($_POST['senha']));
 
             /*echo '<pre>';
             print_r($usuario);

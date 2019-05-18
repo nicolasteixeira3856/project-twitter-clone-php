@@ -6,3 +6,10 @@ CREATE TABLE usuarios(
     email VARCHAR(150) NOT NULl,
     senha VARCHAR(32) NOT NULL
 );
+
+CREATE TABLE tweets(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    tweet varchar(140) NOT NULL,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP
+);

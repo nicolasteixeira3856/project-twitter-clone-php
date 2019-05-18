@@ -32,7 +32,7 @@
 
             $usuario->__set('nome', $_POST['nome']);
             $usuario->__set('email', $_POST['email']);
-            $usuario->__set('senha', $_POST['senha']);
+            $usuario->__set('senha', MD5($_POST['senha']));
 
             if($usuario->validarCadastro() == TRUE && count($usuario->getUsuarioPorEmail()) == 0){
                 $usuario->salvar();
