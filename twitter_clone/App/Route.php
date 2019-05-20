@@ -55,6 +55,18 @@
                 'action' => 'quemSeguir'
             );
 
+            $routes['acao'] = array(
+                'route' => '/acao',
+                'controller' => 'AppController',
+                'action' => 'acao'
+            );
+
+            $routes['deletartweet'] = array(
+                'route' => '/deletartweet',
+                'controller' => 'AppController',
+                'action' => 'deletarTweet'
+            );
+
 
             $this->setRoutes($routes);
         }

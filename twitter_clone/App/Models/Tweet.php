@@ -33,12 +33,17 @@
         public function getAll(){
             $query = "
                 SELECT 
-                    t.id, t.id_usuario, u.nome, t.tweet, DATE_FORMAT(t.data, '%d/%m/%y %H:%i') AS data
+                    t.id,
+                    t.id_usuario,
+                    u.nome,
+                    t.tweet,
+                    DATE_FORMAT(t.data, '%d/%m/%y %H:%i') AS data
                 FROM 
                     tweets as t
                     LEFT JOIN usuarios AS u ON (t.id_usuario = u.id)
                 WHERE 
                     t.id_usuario = :id_usuario
+                    or t.id_usuario in (select id_usuario_seguindo from usuarios_seguidores where id_usuario=:id_usuario)
                 ORDER BY
                     t.data desc";
             $stmt = $this->db->prepare($query);
